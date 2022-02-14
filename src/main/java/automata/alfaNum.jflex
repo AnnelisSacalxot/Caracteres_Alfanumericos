@@ -1,7 +1,9 @@
 /*primer seccion: codigo de usuario*/
 
-package automata;
+package automata
+package com.mycompany.alfanumerico;
 import java.util.ArrayList;
+
 
 %%
 
@@ -28,13 +30,9 @@ import java.util.ArrayList;
        contChar++;
     }
     
-    public int getContadorVocales() {
-        return contChar;
-    }
-    
     //para que lea las palabras y devuelva las vocales
     public void leyendoPalabra(){
-    //ciclo para identificar des 1 a 5 vocales
+    //ciclo para identificar desde 1 a 5 vocales
     	if(contChar == 1){
     	contVoc1++;
     	}if(contChar == 2){
@@ -80,12 +78,12 @@ import java.util.ArrayList;
 
 
 %eof{
-// System.out.println("Vocales 1: " +  getContVoc1());
- // System.out.println("Vocales 2: " +  getContVoc2());
-  // System.out.println("Vocales 3: " +  getContVoc3());
-// System.out.println("Vocales 4: " +  getContVoc4());
-// System.out.println("Vocales 5: " +  getContVoc5());
-// System.out.println("Numeros:" + getContNum());
+ //System.out.println("Vocales 1: " +  getContVoc1());
+ //System.out.println("Vocales 2: " +  getContVoc2());
+ //System.out.println("Vocales 3: " +  getContVoc3());
+ //System.out.println("Vocales 4: " +  getContVoc4());
+ //System.out.println("Vocales 5: " +  getContVoc5());
+ //System.out.println("Numeros:" + getContNum());
 %eof}
 
 %%

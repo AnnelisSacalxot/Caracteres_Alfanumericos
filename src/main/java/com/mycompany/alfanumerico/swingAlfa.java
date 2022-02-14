@@ -4,11 +4,18 @@
  */
 package com.mycompany.alfanumerico;
 
+import com.mycompany.alfanumerico.AlfaNum;
+import java.io.Reader;
+import java.io.StringReader;
+
+
 /**
  *
  * @author annelis
  */
 public class swingAlfa extends javax.swing.JFrame {
+    
+     AlfaNum alfanumerico;
 
     /**
      * Creates new form swingAlfa
@@ -33,14 +40,13 @@ public class swingAlfa extends javax.swing.JFrame {
         jTextAreaEntrada = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaResultadoNum = new javax.swing.JTextArea();
-        jButtonVocales = new javax.swing.JButton();
+        jButtonResultados = new javax.swing.JButton();
         jLabelVocal1 = new javax.swing.JLabel();
         jLabelVocal2 = new javax.swing.JLabel();
         jLabelVocal3 = new javax.swing.JLabel();
         jLabelVocal4 = new javax.swing.JLabel();
         jLabelVocal5 = new javax.swing.JLabel();
         jLabelNu = new javax.swing.JLabel();
-        jButtonNum = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Caracteres Alfanumericos");
@@ -57,12 +63,12 @@ public class swingAlfa extends javax.swing.JFrame {
         jTextAreaResultadoNum.setRows(5);
         jScrollPane2.setViewportView(jTextAreaResultadoNum);
 
-        jButtonVocales.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonVocales.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButtonVocales.setText("Resultado Vocales");
-        jButtonVocales.addActionListener(new java.awt.event.ActionListener() {
+        jButtonResultados.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonResultados.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonResultados.setText("Resultados");
+        jButtonResultados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVocalesActionPerformed(evt);
+                jButtonResultadosActionPerformed(evt);
             }
         });
 
@@ -84,10 +90,6 @@ public class swingAlfa extends javax.swing.JFrame {
         jLabelNu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabelNu.setText("Se muestra la posición de los números");
 
-        jButtonNum.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonNum.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButtonNum.setText("Resultado Números");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,9 +107,7 @@ public class swingAlfa extends javax.swing.JFrame {
                             .addComponent(jLabelVocal1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
-                                .addComponent(jButtonVocales)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonNum))))
+                                .addComponent(jButtonResultados))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -124,9 +124,7 @@ public class swingAlfa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonVocales)
-                    .addComponent(jButtonNum))
+                .addComponent(jButtonResultados)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jLabelVocal1)
                 .addGap(12, 12, 12)
@@ -147,9 +145,31 @@ public class swingAlfa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonVocalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVocalesActionPerformed
+    private void jButtonResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResultadosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonVocalesActionPerformed
+        Reader reader=new StringReader(jTextAreaEntrada.getText());
+       alfanumerico = new AlfaNum(reader);
+        int columna;
+        int fila;
+        try {
+            int output=alfanumerico.yylex();
+            while(output!= AlfaNum.YYEOF){
+                alfanumerico.yylex();
+            } 
+            jLabelVocal1.setText("Con una vocal"+alfanumerico. getContVoc1());
+            jLabelVocal2.setText("Con dos vocal"+alfanumerico. getContVoc2());
+            jLabelVocal3.setText("Con tres vocal"+alfanumerico. getContVoc3());
+            jLabelVocal4.setText("Con cuatro vocal"+alfanumerico. getContVoc4());
+            jLabelVocal5.setText("Con cinco vocal"+alfanumerico. getContVoc5());
+            
+            for (int i = 0; i < alfanumerico.getContNum().size(); i++) {
+                String texto=alfanumerico.getContNum().get(i);
+                jTextAreaResultadoNum.append(texto+"\n");
+                System.out.println(""+texto);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButtonResultadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,8 +207,7 @@ public class swingAlfa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonNum;
-    private javax.swing.JButton jButtonVocales;
+    private javax.swing.JButton jButtonResultados;
     private javax.swing.JLabel jLabelAviso;
     private javax.swing.JLabel jLabelNu;
     private javax.swing.JLabel jLabelVocal1;

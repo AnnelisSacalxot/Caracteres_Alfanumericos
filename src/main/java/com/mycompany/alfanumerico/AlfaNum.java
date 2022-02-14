@@ -4,8 +4,10 @@
 
 /*primer seccion: codigo de usuario*/
 
-import java.util.ArrayList;
+package com.mycompany.alfanumerico;
 
+import java.io.Reader;
+import java.util.ArrayList;
 
 // See https://github.com/jflex-de/jflex/issues/222
 @SuppressWarnings("FallThrough")
@@ -287,27 +289,19 @@ public class AlfaNum {
        contChar++;
     }
     
-    public int getContadorVocales() {
-        return contChar;
-    }
-    
     //para que lea las palabras y devuelva las vocales
     public void leyendoPalabra(){
     //ciclo para identificar desde 1 a 5 vocales
     	if(contChar == 1){
     	contVoc1++;
-    
     	}if(contChar == 2){
     	contVoc2++;
-    		
     	}if(contChar == 3){
     	contVoc3++;
-
     	}if(contChar == 4){
     	 contVoc4++;
     	}if(contChar == 5){
     	contVoc5++;
-    	
     	}
     }
     
@@ -594,12 +588,12 @@ public class AlfaNum {
     if (!zzEOFDone) {
       zzEOFDone = true;
     
- System.out.println("Vocales 1: " +  getContVoc1());
- System.out.println("Vocales 2: " +  getContVoc2());
- System.out.println("Vocales 3: " +  getContVoc3());
- System.out.println("Vocales 4: " +  getContVoc4());
- System.out.println("Vocales 5: " +  getContVoc5());
- System.out.println("Numeros:" + getContNum());
+ //System.out.println("Vocales 1: " +  getContVoc1());
+ //System.out.println("Vocales 2: " +  getContVoc2());
+ //System.out.println("Vocales 3: " +  getContVoc3());
+ //System.out.println("Vocales 4: " +  getContVoc4());
+ //System.out.println("Vocales 5: " +  getContVoc5());
+ //System.out.println("Numeros:" + getContNum());
     }
   }
 
