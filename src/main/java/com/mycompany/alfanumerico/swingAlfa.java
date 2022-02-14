@@ -33,13 +33,14 @@ public class swingAlfa extends javax.swing.JFrame {
         jTextAreaEntrada = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaResultadoNum = new javax.swing.JTextArea();
-        jButtonAccion = new javax.swing.JButton();
+        jButtonVocales = new javax.swing.JButton();
         jLabelVocal1 = new javax.swing.JLabel();
         jLabelVocal2 = new javax.swing.JLabel();
         jLabelVocal3 = new javax.swing.JLabel();
         jLabelVocal4 = new javax.swing.JLabel();
         jLabelVocal5 = new javax.swing.JLabel();
         jLabelNu = new javax.swing.JLabel();
+        jButtonNum = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Caracteres Alfanumericos");
@@ -56,52 +57,63 @@ public class swingAlfa extends javax.swing.JFrame {
         jTextAreaResultadoNum.setRows(5);
         jScrollPane2.setViewportView(jTextAreaResultadoNum);
 
-        jButtonAccion.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonAccion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButtonAccion.setText("Resultado");
+        jButtonVocales.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonVocales.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonVocales.setText("Resultado Vocales");
+        jButtonVocales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVocalesActionPerformed(evt);
+            }
+        });
 
         jLabelVocal1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabelVocal1.setText("Palabras que tengan una vocal");
+        jLabelVocal1.setText("Palabras que tengan una vocal :");
 
         jLabelVocal2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabelVocal2.setText("Palabras que tengan dos vocales");
+        jLabelVocal2.setText("Palabras que tengan dos vocales :");
 
         jLabelVocal3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabelVocal3.setText("Palabras que tengan tres vocales");
+        jLabelVocal3.setText("Palabras que tengan tres vocales :");
 
         jLabelVocal4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabelVocal4.setText("Palabras que tengan cuatro vocales");
+        jLabelVocal4.setText("Palabras que tengan cuatro vocales :");
 
         jLabelVocal5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabelVocal5.setText("Palabras que tengan cinco vocales");
+        jLabelVocal5.setText("Palabras que tengan cinco vocales :");
 
         jLabelNu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabelNu.setText("Se muestra la posición de los números");
+
+        jButtonNum.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonNum.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonNum.setText("Resultado Números");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelVocal2)
-                            .addComponent(jLabelVocal1)
                             .addComponent(jLabelVocal3)
                             .addComponent(jLabelVocal4)
                             .addComponent(jLabelVocal5)
-                            .addComponent(jLabelNu)))
+                            .addComponent(jLabelNu)
+                            .addComponent(jLabelVocal1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jButtonVocales)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonNum))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelAviso)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(177, 177, 177)
-                                .addComponent(jButtonAccion)))))
+                            .addComponent(jScrollPane2))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,7 +124,9 @@ public class swingAlfa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonAccion)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVocales)
+                    .addComponent(jButtonNum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jLabelVocal1)
                 .addGap(12, 12, 12)
@@ -132,6 +146,10 @@ public class swingAlfa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonVocalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVocalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVocalesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,7 +187,8 @@ public class swingAlfa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAccion;
+    private javax.swing.JButton jButtonNum;
+    private javax.swing.JButton jButtonVocales;
     private javax.swing.JLabel jLabelAviso;
     private javax.swing.JLabel jLabelNu;
     private javax.swing.JLabel jLabelVocal1;
